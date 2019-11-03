@@ -112,9 +112,6 @@ public class AppUtils {
                 .queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         ArrayList<Intent> intents = new ArrayList<>();
         for (ResolveInfo info : activities) {
-            if (info.activityInfo.packageName.equalsIgnoreCase(context.getPackageName())) {
-                continue;
-            }
             intents.add(createViewIntent(context, item, url, session)
                     .setPackage(info.activityInfo.packageName));
         }
